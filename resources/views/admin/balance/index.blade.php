@@ -20,7 +20,7 @@
         <div class="box-body">
             <div class="small-box bg-green">
                 <div class="inner">
-                    <h3>R$ {{ number_format($amount, 2, ',', '') }}</h3>
+                    <h3>R$ {{ $amount }}</h3>
                 </div>
                 <div class="icon">
                     <i class="ion ion-cash"></i>

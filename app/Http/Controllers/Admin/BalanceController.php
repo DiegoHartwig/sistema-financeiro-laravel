@@ -11,10 +11,11 @@ class BalanceController extends Controller
     public function index()
     {
         $balance = auth()->user()->balance;
-        $amount = $balance ? $balance->amount : 0;
-
-        //dd( auth()->user()->name);
-        //dd( auth()->user()->balance);
+        $amount = number_format($balance ? $balance->amount : 0, '2', ',', '.');
+        
+        //dd(auth()->user());
+        //dd(auth()->user()->name);
+        //dd(auth()->user()->balance);
 
         return view('admin.balance.index', compact('amount'));
     }
