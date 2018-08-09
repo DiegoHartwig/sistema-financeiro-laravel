@@ -18,6 +18,7 @@
             <a href="" class="btn btn-danger"><i class="fa fa-cart-plus" aria-hidden="true">Saque</i></a>
         </div>
         <div class="box-body">
+            @include('admin.includes.alerts')
             <div class="small-box bg-green">
                 <div class="inner">
                     <h3>R$ {{ $amount }}</h3>

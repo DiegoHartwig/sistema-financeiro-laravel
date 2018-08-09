@@ -17,15 +17,8 @@
         <div class="box-header">
             <h3>Efetuar Depósito</h3>
         </div>
-        <div class="box-body">
-
-            @if ($errors->any())
-                <div class="alert alert-warning">
-                    @foreach ($errors->all() as $error)
-                        <p>{{ $error }}</p> 
-                    @endforeach
-                </div>
-            @endif
+        <div class="box-body">    
+            @include('admin.includes.alerts')     
 
             <form action="{{ route('deposit.store') }}" method="post">
                 {!! csrf_field() !!}
