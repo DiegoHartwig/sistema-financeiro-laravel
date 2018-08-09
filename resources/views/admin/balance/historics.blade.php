@@ -45,8 +45,11 @@
                     </tr>
                     @empty
                     @endforelse
-                </tbody>
+                </tbody>              
             </table>
+
+            {!! $historics->links() !!}
+
         </div>
     </div>
 @stop
