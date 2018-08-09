@@ -33,7 +33,7 @@
                     <tr>
                         <td>{{ $historic->id }}</td>
                         <td>{{ number_format($historic->amount),2, '.',','}}</td>
-                        <td>{{ $historic->type }}</td>
+                        <td>{{ $historic->type($historic->type) }}</td>
                         <td>{{ $historic->date }}</td>
                         <td>{{ $historic->user_id_transaction }}</td>                        
                     </tr>
