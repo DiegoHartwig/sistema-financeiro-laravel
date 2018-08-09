@@ -7,6 +7,7 @@ use App\Http\Requests\ValidationMoneyFormRequest;
 use App\Models\Balance;
 use App\User;
 use Illuminate\Http\Request;
+use App\Models\Historic;
 
 class BalanceController extends Controller
 {
@@ -116,13 +117,26 @@ class BalanceController extends Controller
             ->with('error', $response['message']);
     }
 
-    public function historic()
+    public function historic(Historic $historic)
     {
         $historics = auth()->user()
                     ->historics()->with(['userSender'])
-                    ->paginate($this->totalPagesPaginate);    
+                    ->paginate($this->totalPagesPaginate);   
+                    
+        $types = $historic->type();            
 
-        return view('admin.balance.historics', compact('historics'));
+        return view('admin.balance.historics', compact('historics', 'types'));
+    }
+
+    public function searchHistoric(Request $request, Historic $historic)
+    {
+        $dataForm = $request->all();
+
+        $historics =  $historic->search($dataForm, $this->totalPagesPaginate);
+
+        $types = $historic->type();
+
+        return view('admin.balance.historics', compact('historics', 'types'));
     }
 
 }
