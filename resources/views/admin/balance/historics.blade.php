@@ -25,7 +25,7 @@
                         <th>Valor</th>
                         <th>Tipo</th>
                         <th>Data</th>
-                        <th>?Sender?</th>                        
+                        <th>Remetente</th>                        
                     </tr>
                 </thead>
                 <tbody>
@@ -35,7 +35,13 @@
                         <td>{{ number_format($historic->amount),2, '.',','}}</td>
                         <td>{{ $historic->type($historic->type) }}</td>
                         <td>{{ $historic->date }}</td>
-                        <td>{{ $historic->user_id_transaction }}</td>                        
+                        <td>
+                            @if ( $historic->user_id_transaction )
+                                {{ $historic->userSender->name }}
+                            @else
+                                - - -
+                            @endif
+                        </td>                        
                     </tr>
                     @empty
                     @endforelse
