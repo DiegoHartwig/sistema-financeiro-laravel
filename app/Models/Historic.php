@@ -57,6 +57,8 @@ class Historic extends Model
                 $query->where('type', $data['type']);        
         })
         //->toSql(); dd($historics);
+        ->where('user_id', auth()->user()->id)
+        ->with(['userSender'])
         ->paginate($totalPagesPaginate);
     }
 
