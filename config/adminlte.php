@@ -115,6 +115,11 @@ return [
             'icon'        => 'dashboard',            
         ],
         [
+            'text'        => 'Perfil',
+            'url'         => 'perfil',
+            'icon'        => 'user',            
+        ],
+        [
             'text'        => 'Financeiro',            
             'icon'        => 'money',   
             'submenu'     => [
